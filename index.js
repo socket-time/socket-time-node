@@ -20,13 +20,12 @@ var firebaseUrl = 'https://sockettime.firebaseio.com/.json?auth='+process.env.fi
 
 cron.schedule('* * * * * *', function(){
     updateTime()
-    // console.log(moment().toISOString())
 });
 
 function updateTime() {
     request.put(
         firebaseUrl,
-        { json: { utc: moment().format(), iso8601: moment().toISOString()} },
+        { json: { utc:moment().format(), unix_second:moment().format("X"), unix_millisecond: moment().format("x"), iso8601: moment().toISOString()} },
         function (error, response, body) {
             if (error) {
                 console.log("ERROR: "+error)
