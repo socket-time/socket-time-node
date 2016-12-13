@@ -1,0 +1,7 @@
+{
+  "name": "Socket Time API",
+  "description": "",
+  "repository": "https://github.com/socket-time/socket-time-node",
+  "keywords": ["node", "express", "static"],
+  "image": "heroku/nodejs"
+}

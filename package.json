@@ -1,0 +1,25 @@
+{
+  "name": "socket-time-node",
+  "version": "0.9.0",
+  "description": "",
+  "engines": {
+    "node": "5.9.1"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "ejs": "2.4.1",
+    "express": "4.13.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/socket-time/socket-time-node"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "license": "MIT"
+}
