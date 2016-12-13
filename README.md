@@ -1,13 +1,12 @@
-Socket Time
+# Socket Time
 
-Node.js
+Socket Time provides a free web socket & API for getting the current time through Firebase.
 
-Provide a free web socket & API for getting a server's current time 
+Instructions to setup firebase on your iOS, Android, or web clients: https://firebase.google.com/docs/
 
-To see how to setup firebase on your iOS, Android, or web 
-https://firebase.google.com/docs/
+Firebase URL: https://sockettime.firebaseio.com/
 
-Bind your client to https://sockettime.firebaseio.com/ and you will get 
+Example response:
 
 ```javascript
 {
@@ -18,17 +17,22 @@ Bind your client to https://sockettime.firebaseio.com/ and you will get
 }
 ```
 
-Bind to https://sockettime.firebaseio.com/iso8601 and you will get 
+Bind to https://sockettime.firebaseio.com/iso8601
+
+Example response:
+```javascript
 {
     "2016-12-13T08:09:28.266Z
 }
+```
 
 Or you can make a GET request to
 
+```bash
 curl https://sockettime.firebaseio.com/.json
 
 curl https://sockettime.firebaseio.com/iso8601.json
-
+```
 
 utc and unix_second are to seconds
 
