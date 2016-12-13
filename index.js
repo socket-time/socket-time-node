@@ -16,7 +16,7 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
-var firebaseUrl = 'https://sockettime.firebaseio.com/.json?auth='+process.env.firebaseToken
+var firebaseUrl = 'https://sockettime.firebaseio.com/.json?print=silent&auth='+process.env.firebaseToken
 
 cron.schedule('* * * * * *', function(){
     updateTime()
@@ -25,7 +25,7 @@ cron.schedule('* * * * * *', function(){
 function updateTime() {
     request.put(
         firebaseUrl,
-        { json: { ".sv": "timestamp", utc:moment().format(), unix_second:moment().format("X"), unix_millisecond: moment().format("x"), iso8601: moment().toISOString()} },
+        { json: { "firebase_unix_second": "timestamp", utc:moment().format(), unix_second:moment().format("X"), unix_millisecond: moment().format("x"), iso8601: moment().toISOString()} },
         function (error, response, body) {
             if (error) {
                 console.log("ERROR: "+error)
