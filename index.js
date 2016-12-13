@@ -4,6 +4,7 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var request = require('request');
 var moment = require('moment')
+var cron = require('node-cron');
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -15,16 +16,20 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
-var firebaseUrl = 'https://sockettime.firebaseio.com/utc.json?auth='+process.env.firebaseToken
+var firebaseUrl = 'https://sockettime.firebaseio.com/.json?auth='+process.env.firebaseToken
 
-request.post(
-    firebaseUrl,
-    { json: moment().format() },
-    function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            console.log(body)
+cron.schedule('* * * * * *', function(){
+    updateTime()
+});
+
+function updateTime() {
+    request.put(
+        firebaseUrl,
+        { json: { utc: moment().format()} },
+        function (error, response, body) {
+            if (error) {
+                console.log("ERROR: "+error)
+            }
         }
-    }
-);
-
-console.log(moment().format())
+    );
+}
