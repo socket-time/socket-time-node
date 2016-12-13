@@ -25,7 +25,7 @@ cron.schedule('* * * * * *', function(){
 function updateTime() {
     request.put(
         firebaseUrl,
-        { json: { utc:moment().format(), unix_second:moment().format("X"), unix_millisecond: moment().format("x"), iso8601: moment().toISOString()} },
+        { json: { ".sv": "timestamp", utc:moment().format(), unix_second:moment().format("X"), unix_millisecond: moment().format("x"), iso8601: moment().toISOString()} },
         function (error, response, body) {
             if (error) {
                 console.log("ERROR: "+error)
