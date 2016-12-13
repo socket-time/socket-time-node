@@ -8,12 +8,15 @@ To see how to setup firebase on your iOS, Android, or web
 https://firebase.google.com/docs/
 
 Bind your client to https://sockettime.firebaseio.com/ and you will get 
+
+```javascript
 {
   "iso8601": "2016-12-13T08:06:43.656Z",
   "unix_millisecond": "1481616403656",
   "unix_second": "1481616403",
   "utc": "2016-12-13T08:06:43+00:00"
 }
+```
 
 Bind to https://sockettime.firebaseio.com/iso8601 and you will get 
 {
@@ -24,20 +27,7 @@ Or you can make a GET request to
 
 curl https://sockettime.firebaseio.com/.json
 
-response:
-{
-  "iso8601": "2016-12-13T08:06:43.656Z",
-  "unix_millisecond": "1481616403656",
-  "unix_second": "1481616403",
-  "utc": "2016-12-13T08:06:43+00:00"
-}
-
 curl https://sockettime.firebaseio.com/iso8601.json
-
-response:
-{
-    "2016-12-13T08:09:28.266Z
-}
 
 
 utc and unix_second are to seconds
