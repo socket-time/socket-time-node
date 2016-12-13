@@ -22,7 +22,7 @@ Bind to https://sockettime.firebaseio.com/iso8601
 Example response:
 ```javascript
 {
-    "2016-12-13T08:09:28.266Z
+    "2016-12-13T08:09:28.266Z"
 }
 ```
 
