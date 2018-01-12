@@ -6,11 +6,17 @@ var request = require('request');
 var moment = require('moment')
 var cron = require('node-cron');
 
+
+
 app.set('port', (process.env.PORT || 5000));
 
 app.get('/', function(request, response) {
-  
+    response.status(401).send({"error": "nothing here"})
 });
+
+app.use(router);
+
+require('./routes/v1/routes.js')(router)
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
